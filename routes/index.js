@@ -11,8 +11,9 @@ router.get('/', function(req, res, next) {
 csv()
   .fromFile('./csv/data.csv')
   .on("end_parsed",function(jsonArrayObj){ //when parse finished, result will be emitted here.
-    // console.log(jsonArrayObj); 
+    console.log(jsonArrayObj); 
      res.send(jsonArrayObj);
+    // res.send(jsonArrayObj.stringify());
    })
 
 
