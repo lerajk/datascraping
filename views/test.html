@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>CSV upload</title>
+	</head>
+	<body>
+
+		<h1>CSV File Upload</h1>
+		<input type="file" name="filename" id="filename">
+		<button id="upload">View</button>
+		<div class="csv"></div>
+
+
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+
+	</body>
+</html>
+
+<script type="text/javascript">
+
+//this is the 1st way.
+$(document).ready(function(){
+    $('#upload').click(function(){
+
+        var csv = $('#filename');
+        var csvFile = csv[0].files[0];
+        var ext = csv.val().split(".").pop().toLowerCase();
+
+        if($.inArray(ext, ["csv"]) === -1){
+            alert('upload csv');
+            return false;
+        }
+        if(csvFile != undefined){
+            reader = new FileReader();
+            reader.onload = function(e){
+
+                csvResult = e.target.result.split(/\r|\n|\r\n/);
+                $('.csv').append(csvResult);
+            }
+            reader.readAsText(csvFile);
+        }
+    });
+});
+
+</script>
