@@ -20,4 +20,9 @@ csv()
 
 });
 
+router.get('/api', function(req,res,next){
+
+	res.send('this is api');
+})
+
 module.exports = router;
