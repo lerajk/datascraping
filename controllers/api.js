@@ -7,5 +7,5 @@ module.exports.api = function(req,res){
 		else{
 			res.send(JSON.stringify(docs));
 		}
-	})
+	});
 }

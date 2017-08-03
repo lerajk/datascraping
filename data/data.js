@@ -1,8 +1,8 @@
 var mongoose = require( 'mongoose' );
 
 var uristring = 
-  process.env.MONGODB_URI || 
-  'mongodb://localhost/datascrap';
+  process.env.MONGODB_URI ; 
+  // || 'mongodb://localhost/datascrap';
 
 var theport = process.env.PORT || 5000;
 
