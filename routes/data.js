@@ -1,8 +1,7 @@
 var mongoose = require( 'mongoose' );
 
 var uristring = 
-  process.env.MONGODB_URI || 
-  'mongodb://localhost/datascrap';
+  process.env.MONGODB_URI;
 
 var theport = process.env.PORT || 5000;
 
@@ -15,6 +14,7 @@ mongoose.connect(uristring, function (err, res) {
 });
 
 /*
+
 var datascrap = mongoose.Schema({
 	portal_url: {
 		type: String,
@@ -64,9 +64,9 @@ var datascrap = mongoose.Schema({
 	}
 
 
-});
+}); */
 
-module.exports = var data = mongoose.model('data', datascrap); */ 
+//module.exports = var data = mongoose.model('data', datascrap);  
 
 
 

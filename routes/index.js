@@ -3,6 +3,8 @@ var router = express.Router();
 // require csvtojson
 var csv = require("csvtojson");
 
+var control = require('../controllers/api.js');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
 res.render('index', { title: 'Express' });
@@ -20,9 +22,6 @@ csv()
 
 });
 
-router.get('/api', function(req,res,next){
-
-	res.send('this is api');
-})
+router.get('/api', control.api);
 
 module.exports = router;
