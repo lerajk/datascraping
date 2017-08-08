@@ -7,9 +7,9 @@ var control = require('../controllers/api.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-res.render('index', { title: 'Express' });
+//res.render('index', { title: 'Express' });
 
-/*
+
 // Convert a csv file with csvtojson
 csv()
   .fromFile('./csv/data.csv')
@@ -17,7 +17,7 @@ csv()
     console.log(jsonArrayObj); 
      res.send(jsonArrayObj);
     // res.send(jsonArrayObj.stringify());
-   }) */
+   }) 
 
 
 });
