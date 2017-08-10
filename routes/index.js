@@ -22,6 +22,24 @@ csv()
 
 });
 
+
+/* GET Sources API . */
+router.get('/sources', function(req, res, next) {
+//res.render('index', { title: 'Express' });
+
+
+// Convert a csv file with csvtojson
+csv()
+  .fromFile('./csv/sources.csv')
+  .on("end_parsed",function(jsonArrayObj){ //when parse finished, result will be emitted here.
+    console.log(jsonArrayObj); 
+     res.send(jsonArrayObj);
+    // res.send(jsonArrayObj.stringify());
+   }) 
+
+
+});
+
 router.get('/api', control.api);
 
 module.exports = router;
