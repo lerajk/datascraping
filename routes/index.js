@@ -42,7 +42,7 @@ csv()
 
 
 
-/* GET Sources API . */
+/* GET keywords API . */
 router.get('/keywords', function(req, res, next) {
 //res.render('index', { title: 'Express' });
 
@@ -50,6 +50,25 @@ router.get('/keywords', function(req, res, next) {
 // Convert a csv file with csvtojson
 csv()
   .fromFile('./csv/keywords.csv')
+  .on("end_parsed",function(jsonArrayObj){ //when parse finished, result will be emitted here.
+    console.log(jsonArrayObj); 
+     res.send(jsonArrayObj);
+    // res.send(jsonArrayObj.stringify());
+   }) 
+
+
+});
+
+
+
+/* GET keywords API . */
+router.get('/sales', function(req, res, next) {
+//res.render('index', { title: 'Express' });
+
+
+// Convert a csv file with csvtojson
+csv()
+  .fromFile('./csv/sales.csv')
   .on("end_parsed",function(jsonArrayObj){ //when parse finished, result will be emitted here.
     console.log(jsonArrayObj); 
      res.send(jsonArrayObj);
